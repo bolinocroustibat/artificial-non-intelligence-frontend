@@ -1,1 +1,12 @@
-# artificial-non-intelligence-frontend
+# Artificial Non Intelligence - Frontend
+
+Basic frontend with HTML, CSS and JavaScript, no dependencies.
+
+
+## To deploy on Heroku
+
+Add Heroku app as origin, if necessary:
+`heroku git:remote -a artificial-non-intelligence`
+
+Deploy with:
+`git push heroku main`

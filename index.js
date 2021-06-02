@@ -51,6 +51,7 @@ function sendAnswer(questionId, answer) {
 
     const url = new URL(host + "/verify-answer")
     let params = {
+        questionId: questionId,
         answer: answer
     }
     url.search = new URLSearchParams(params).toString()
