@@ -14,7 +14,10 @@ html, body {
 }
 
 .button {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
     width: 20%;
     border: 2px solid;
     cursor: pointer;
@@ -25,16 +28,29 @@ html, body {
     transition: 0.3s;
 }
 
-#ai:hover {
+#left:hover {
     background-color: red;
 }
 
 #main-content {
-    display: block;
+    display: flex;
+    flex-direction: column;
     width: 60%;
     border: 2px solid;
 }
 
-#human:hover {
+#right:hover {
     background-color: green;
+}
+
+#question-wrapper {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+#score-wrapper {
+    height: 30px;
 }
