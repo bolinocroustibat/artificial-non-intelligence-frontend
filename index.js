@@ -12,7 +12,13 @@ window.addEventListener('load', function () {
 
     document.querySelectorAll('.button').forEach(button => {
         button.addEventListener('click', function (event) {
-            sendAnswer(currentQuestionId, button.id)
+            if (button.id == "right") {
+                var answer = 1
+            }
+            else if (button.id == "left") {
+                var answer = 0
+            }
+            sendAnswer(currentQuestionId, answer)
             getNewQuestion()
         })
     })
@@ -21,7 +27,7 @@ window.addEventListener('load', function () {
 
 function getNewQuestion() {
 
-    const url = new URL(host + "/get-new-comment")
+    const url = new URL(host + "/get-random-comment")
 
     return fetch(url)
         .then((response) => {
@@ -32,16 +38,11 @@ function getNewQuestion() {
             }
         })
         .then((responseJson) => {
+            // console.log(responseJson)
             currentQuestionId = responseJson.id
-            document.getElementById("question-wrapper").innerHTML = responseJson.content
+            document.getElementById("question").innerHTML = responseJson.comment
         })
         .catch((error) => {
-
-            // Mock data, to be removed once it's connected to prod
-            responseJson = { "id": 124, "content": "She is as dirty as they come  and that crook Rengel  the Dems are so fucking corrupt it's a joke." }
-            currentQuestionId = responseJson.id
-            document.getElementById("question-wrapper").innerHTML = responseJson.content
-
             throw new Error("API error")
         })
 
@@ -66,16 +67,10 @@ function sendAnswer(questionId, answer) {
         })
         .then((responseJson) => {
             console.log(responseJson)
-            score = score - responseJson.answer
+            score = score + responseJson.correct
             document.getElementById("score").innerHTML = score
         })
         .catch((error) => {
-
-            // Mock data, to be removed once it's connected to prod
-            responseJson = { "id": 124, "answer": 1 }
-            score = score - responseJson.answer
-            document.getElementById("score").innerHTML = score
-
             throw new Error("API error")
         })
 
