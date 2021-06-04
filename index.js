@@ -1,5 +1,5 @@
-const host = "https://non-intelligence-api.herokuapp.com"
-// const host = "http://127.0.0.1:8000"
+// const host = "https://non-intelligence-api.herokuapp.com"
+const host = "http://127.0.0.1:8000"
 
 var currentQuestionId = null
 var score = 0
@@ -8,8 +8,7 @@ var clickable = true
 window.addEventListener('load', function () {
 
     document.getElementById("score").innerHTML = score
-
-    getNewQuestion()
+    getNewQuestion(aggressive)
 
     document.querySelectorAll('.button').forEach(button => {
         button.addEventListener('click', function (event) {
@@ -37,9 +36,15 @@ window.addEventListener('load', function () {
 
 })
 
-function getNewQuestion() {
+function getNewQuestion(aggressive) {
 
     const url = new URL(host + "/get-random-comment")
+    if (aggressive != null) {
+        let params = {
+            aggressive: aggressive,
+        }
+        url.search = new URLSearchParams(params).toString()
+    }
 
     return fetch(url)
         .then((response) => {
