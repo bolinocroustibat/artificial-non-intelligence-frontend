@@ -17,7 +17,8 @@ window.addEventListener('load', function () {
 
                 clickable = false
 
-                document.getElementById("question-wrapper").innerHTML = "<img src='style/loader.gif'><br />Please wait..."
+                document.getElementById("question-wrapper").style.display = "none"
+                document.getElementById("loader-wrapper").style.display = "block"
 
                 if (button.id == "right") {
                     var answer = 1
@@ -51,7 +52,9 @@ function getNewQuestion() {
         .then((responseJson) => {
             console.log(responseJson)
             currentQuestionId = responseJson.id
-            document.getElementById("question-wrapper").innerHTML = "“ <span id='question'>" + responseJson.comment + "</span>”"
+            document.getElementById("question").innerHTML = responseJson.comment
+            document.getElementById("question-wrapper").style.display = "block"
+            document.getElementById("loader-wrapper").style.display = "none"
         })
         .catch((error) => {
             throw new Error("API error")
