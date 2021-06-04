@@ -23,7 +23,7 @@ html, body {
 }
 
 .button:hover {
-    top: -3px;
+    transition: 0.4s;
 }
 
 #left:hover {
