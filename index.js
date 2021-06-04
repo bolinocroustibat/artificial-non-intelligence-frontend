@@ -1,5 +1,5 @@
-// const host = "https://non-intelligence-api.herokuapp.com"
-const host = "http://127.0.0.1:8000"
+const host = "https://non-intelligence-api.herokuapp.com"
+// const host = "http://127.0.0.1:8000"
 
 var currentQuestionId = null
 var score = 0
