@@ -15,6 +15,7 @@
     <meta property="og:description" content="Artificial Non Intelligence" />
     <meta property="og:image" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Quicksand" />
     <link href="style/style.css" rel="stylesheet" type="text/css" />
     <link href="style/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <?php
@@ -58,7 +59,7 @@
             <div id="score-wrapper">
                 Score: <span id="score"></span>
                 <br />
-                Lives: <span id="lives"></span>/3
+                <span id="lives"></span>/3 ❤️
             </div>
         </div>
         <div class="button" id="right">
