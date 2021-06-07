@@ -108,13 +108,13 @@ function sendAnswer(questionId, answerId) {
                 answerDiv.innerHTML = "Well done, you were right!"
             } else {
                 answerDiv.style.color= "red"
-                answerDiv.innerHTML = "Wrong answer!"
+                answerDiv.innerHTML = "Wrong guess!"
                 lives = lives - 1
                 document.getElementById("lives").innerHTML = lives
             }
             if (lives == 0) {
                 answerDiv.style.color= "black"
-                answerDiv.innerHTML = "Game over!<br/>Final score: " + score
+                answerDiv.innerHTML = "Game over<br/><br/>Final score: " + score
                 document.getElementById("next-question-button").style.display = "none"
                 throw new Error("Game finished")
             }

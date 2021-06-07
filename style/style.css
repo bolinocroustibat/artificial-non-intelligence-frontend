@@ -24,7 +24,7 @@ html, body {
     background: #668ad8;
     color: #FFF;
     margin: 10px;
-    padding: 10px;
+    padding: 5px;
     box-shadow: 5px 5px 3px rgba(33,33,33,.2);
 }
 
@@ -100,10 +100,17 @@ html, body {
 
 #answer-wrapper button {
     cursor: pointer;
-    padding: 5px;
+    padding: 10px;
     margin-top: 30px;
 }
 
 #score-wrapper {
     margin-bottom: 15px;
+}
+
+
+@media screen and (max-width:800px) {
+    html, body {
+        font-size: 0.85em;
+    }
 }
