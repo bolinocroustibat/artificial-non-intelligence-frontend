@@ -105,7 +105,7 @@ function sendAnswer(questionId, answerId) {
             let answerDiv = document.getElementById("answer")
             if (responseJson.correct == 1) {
                 answerDiv.style.color= "green"
-                answerDiv.innerHTML = "Well done, you were right!"
+                answerDiv.innerHTML = "Well done, you were right."
             } else {
                 answerDiv.style.color= "red"
                 answerDiv.innerHTML = "Wrong guess!"
