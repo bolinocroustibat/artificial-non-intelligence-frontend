@@ -34,9 +34,12 @@ window.addEventListener('load', function () {
     })
 
     document.getElementById('next-question-button').addEventListener('click', function (event) {
+        document.getElementById("next-question-button").innerHTML = "Next question please"
         document.getElementById("question-wrapper").style.display = "none"
         document.getElementById("loader-wrapper").style.display = "block"
         document.getElementById("answer-wrapper").style.display = "none"
+        document.getElementById("score").innerHTML = score
+        document.getElementById("lives").innerHTML = lives
         getNewQuestion(aggressive)
     })
 
@@ -115,8 +118,10 @@ function sendAnswer(questionId, answerId) {
             if (lives == 0) {
                 answerDiv.style.color= "black"
                 answerDiv.innerHTML = "Game over<br/><br/>Final score: " + score
-                document.getElementById("next-question-button").style.display = "none"
-                throw new Error("Game finished")
+                document.getElementById("next-question-button").innerHTML = "Play again"
+                score = 0
+                lives = 3
+                // throw new Error("Game finished")
             }
         })
         .catch((error) => {
