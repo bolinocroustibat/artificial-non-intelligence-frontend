@@ -1,7 +1,8 @@
 html, body {
     height: 100%;
     margin: 0px;
-    font-family: 'Roboto', sans-serif;
+    padding: 0px;
+    font-family: Quicksand, sans-serif;
     color: #222;
     text-align: center;
 }
@@ -18,17 +19,25 @@ html, body {
     align-content: center;
     flex-direction: column;
     width: 20%;
-    border: 2px solid #555;
     cursor: pointer;
+    background: #668ad8;
+    color: #FFF;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 5px 5px 3px rgba(33,33,33,.2);
+}
+
+.button span {
+    font-size: 3em;
 }
 
 .button:hover {
-    transition: 0.4s;
+    background: #547bd0;
 }
 
-#left:hover {
-    background-color: red;
-    box-shadow: 3px 0 11px rgba(33,33,33,.2);
+.button:active {
+    transform: translate(5px, 5px);
+    box-shadow: none;
 }
 
 #main-content-wrapper {
@@ -46,14 +55,9 @@ html, body {
     padding: 20px;
 }
 
-#right:hover {
-    background-color: green;
-    box-shadow: -3px 0 11px rgba(33,33,33,.2);
-}
-
 #question-wrapper {
     display: none;
-    font-family: "OFL Sorts Mill Goudy TT",Georgia,serif;
+    font-family: "OFL Sorts Mill Goudy TT", Georgia, serif;
     display: none;
     position: relative;
     padding: 15px;
@@ -83,7 +87,7 @@ html, body {
     font-family: 'Roboto', sans-serif;
 }
 
-#loader-wrapper img{
+#loader-wrapper img {
     width: 64px;
     margin: 0 auto 0 auto;
 }
@@ -93,13 +97,13 @@ html, body {
     font-size: 1.5em;
 }
 
-#answer-wrapper button{
+#answer-wrapper button {
     cursor: pointer;
     padding: 5px;
     margin-top: 30px;
 }
 
-
 #score-wrapper {
+    top: -10px;
     height: 30px;
 }

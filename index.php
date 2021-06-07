@@ -36,11 +36,7 @@
 
     <div id="main-wrapper">
         <div class="button" id="left">
-            I think it's
-            <br />
-            🤖
-            <br />
-            AI-GENERATED
+            I think it's<span>🤖</span>AI-GENERATED
         </div>
         <div id="main-content-wrapper">
             <div id="main-content">
@@ -64,11 +60,7 @@
             </div>
         </div>
         <div class="button" id="right">
-            I think it's
-            <br />
-            👩
-            <br />
-            HUMAN-GENERATED
+            I think it's<span>👩</span>HUMAN-GENERATED
         </div>
     </div>
 

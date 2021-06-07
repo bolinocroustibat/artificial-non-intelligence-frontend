@@ -76,6 +76,9 @@ function getNewQuestion(aggressive) {
 
 function sendAnswer(questionId, answerId) {
 
+    document.getElementById("question-wrapper").style.display = "none"
+    document.getElementById("loader-wrapper").style.display = "block"
+
     const url = new URL(host + "/verify-answer")
     let params = {
         questionId: questionId,
@@ -92,14 +95,17 @@ function sendAnswer(questionId, answerId) {
             }
         })
         .then((responseJson) => {
-            console.log(responseJson)
+            // console.log(responseJson)
+            document.getElementById("loader-wrapper").style.display = "none"
             score = score + responseJson.correct
             document.getElementById("score").innerHTML = score
-            document.getElementById("question-wrapper").style.display = "none"
+            let answerDiv = document.getElementById("answer")
             if (responseJson.correct == 1) {
-                document.getElementById("answer").innerHTML = "Well done, you were right!"
+                answerDiv.style.color= "green"
+                answerDiv.innerHTML = "Well done, you were right!"
             } else {
-                document.getElementById("answer").innerHTML = "Wrong answer!"
+                answerDiv.style.color= "red"
+                answerDiv.innerHTML = "Wrong answer!"
             }
             document.getElementById("answer-wrapper").style.display = "block"
         })
