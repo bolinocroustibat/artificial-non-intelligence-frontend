@@ -17,24 +17,29 @@ window.addEventListener('load', function () {
                 clickable = false
 
                 document.getElementById("question-wrapper").style.display = "none"
-                document.getElementById("loader-wrapper").style.display = "block"
 
                 if (button.id == "right") {
-                    var answer = 1
+                    var answerId = 1
                 }
                 else if (button.id == "left") {
-                    var answer = 0
+                    var answerId = 0
                 }
 
-                sendAnswer(currentQuestionId, answer)
-
-                getNewQuestion()
+                sendAnswer(currentQuestionId, answerId)
 
             }
         })
     })
 
+    document.getElementById('next-question-button').addEventListener('click', function (event) {
+        document.getElementById("question-wrapper").style.display = "none"
+        document.getElementById("loader-wrapper").style.display = "block"
+        document.getElementById("answer-wrapper").style.display = "none"
+        getNewQuestion(aggressive)
+    })
+
 })
+
 
 function getNewQuestion(aggressive) {
 
@@ -55,11 +60,13 @@ function getNewQuestion(aggressive) {
             }
         })
         .then((responseJson) => {
-            console.log(responseJson)
+            // console.log(responseJson)
             currentQuestionId = responseJson.id
+            document.getElementById("loader-wrapper").style.display = "none"
+            document.getElementById("answer-wrapper").style.display = "none"
             document.getElementById("question").innerHTML = responseJson.comment
             document.getElementById("question-wrapper").style.display = "block"
-            document.getElementById("loader-wrapper").style.display = "none"
+            clickable = true
         })
         .catch((error) => {
             throw new Error("API error")
@@ -67,12 +74,12 @@ function getNewQuestion(aggressive) {
 
 }
 
-function sendAnswer(questionId, answer) {
+function sendAnswer(questionId, answerId) {
 
     const url = new URL(host + "/verify-answer")
     let params = {
         questionId: questionId,
-        answer: answer
+        answerId: answerId
     }
     url.search = new URLSearchParams(params).toString()
 
@@ -88,10 +95,18 @@ function sendAnswer(questionId, answer) {
             console.log(responseJson)
             score = score + responseJson.correct
             document.getElementById("score").innerHTML = score
-            clickable = true
+            document.getElementById("question-wrapper").style.display = "none"
+            if (responseJson.correct == 1) {
+                document.getElementById("answer").innerHTML = "Well done, you were right!"
+            } else {
+                document.getElementById("answer").innerHTML = "Wrong answer!"
+            }
+            document.getElementById("answer-wrapper").style.display = "block"
         })
         .catch((error) => {
             throw new Error("API error")
         })
 
 }
+
+

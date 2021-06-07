@@ -88,6 +88,18 @@ html, body {
     margin: 0 auto 0 auto;
 }
 
+#answer-wrapper {
+    display: none;
+    font-size: 1.5em;
+}
+
+#answer-wrapper button{
+    cursor: pointer;
+    padding: 5px;
+    margin-top: 30px;
+}
+
+
 #score-wrapper {
     height: 30px;
 }

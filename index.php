@@ -44,12 +44,20 @@
         </div>
         <div id="main-content-wrapper">
             <div id="main-content">
+
                 <div id="loader-wrapper">
                     <img src="style/loader-troll-2.gif">
                     <br />
                     Loading...
                 </div>
+
                 <div id="question-wrapper">“ <span id="question"></span> ”</div>
+
+                <div id="answer-wrapper">
+                    <div id="answer"></div>
+                    <button id="next-question-button">Next question please</button>
+                </div>
+
             </div>
             <div id="score-wrapper">
                 Score: <span id="score"></span>
