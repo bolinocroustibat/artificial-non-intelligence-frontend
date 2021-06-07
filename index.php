@@ -9,11 +9,11 @@
     <meta name="Description" content="Artificial Non Intelligence" />
     <meta property="og:locale" content="en_EN">
     <meta property="og:site_name" content="Artificial Non Intelligence" />
-    <meta property="og:url" content="" />
+    <meta property="og:url" content="https://artificial-non-intelligence.herokuapp.com" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Artificial Non Intelligence" />
     <meta property="og:description" content="Artificial Non Intelligence" />
-    <meta property="og:image" content="" />
+    <meta property="og:image" content="style/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Quicksand" />
     <link href="style/style.css" rel="stylesheet" type="text/css" />
@@ -22,13 +22,12 @@
     // If there's a skin parameter from GET request and if it's part of the existing ones...
     if (isset($_GET["aggressive"]) and ($_GET["aggressive"] == ("true" || "false"))) {
         echo '<script type="text/javascript">
-        var aggressive = ("'.addslashes($_GET["aggressive"]).'" === "true")</script>';
+        var aggressive = ("' . addslashes($_GET["aggressive"]) . '" === "true")</script>';
     } else {
-        echo '<script type="text/javascript">
-        var aggressive = null</script>';
+        echo '<script type="text/javascript">var aggressive = null</script>';
     }
     ?>
-    
+
     <script src="index.js"></script>
 
 </head>
