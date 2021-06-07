@@ -3,11 +3,13 @@ const host = "https://non-intelligence-api.herokuapp.com"
 
 var currentQuestionId = null
 var score = 0
+var lives = 3
 var clickable = true
 
 window.addEventListener('load', function () {
 
     document.getElementById("score").innerHTML = score
+    document.getElementById("lives").innerHTML = lives
     getNewQuestion(aggressive)
 
     document.querySelectorAll('.button').forEach(button => {
@@ -99,6 +101,7 @@ function sendAnswer(questionId, answerId) {
             document.getElementById("loader-wrapper").style.display = "none"
             score = score + responseJson.correct
             document.getElementById("score").innerHTML = score
+            document.getElementById("answer-wrapper").style.display = "block"
             let answerDiv = document.getElementById("answer")
             if (responseJson.correct == 1) {
                 answerDiv.style.color= "green"
@@ -106,11 +109,18 @@ function sendAnswer(questionId, answerId) {
             } else {
                 answerDiv.style.color= "red"
                 answerDiv.innerHTML = "Wrong answer!"
+                lives = lives - 1
+                document.getElementById("lives").innerHTML = lives
             }
-            document.getElementById("answer-wrapper").style.display = "block"
+            if (lives == 0) {
+                answerDiv.style.color= "black"
+                answerDiv.innerHTML = "Game over!<br/>Final score: " + score
+                document.getElementById("next-question-button").style.display = "none"
+                throw new Error("Game finished")
+            }
         })
         .catch((error) => {
-            throw new Error("API error")
+            throw new Error("API error, or game finished")
         })
 
 }

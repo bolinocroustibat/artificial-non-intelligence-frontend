@@ -57,6 +57,8 @@
             </div>
             <div id="score-wrapper">
                 Score: <span id="score"></span>
+                <br />
+                Lives: <span id="lives"></span>/3
             </div>
         </div>
         <div class="button" id="right">

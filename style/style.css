@@ -104,6 +104,5 @@ html, body {
 }
 
 #score-wrapper {
-    top: -10px;
-    height: 30px;
+    margin-bottom: 15px;
 }
