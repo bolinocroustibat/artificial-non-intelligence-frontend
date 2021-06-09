@@ -132,7 +132,7 @@ function endGame() {
     document.getElementById("loader-wrapper").style.display = "block"
     let answerDiv = document.getElementById("answer")
     answerDiv.style.color= "black"
-    answerDiv.innerHTML = "Game over<br/><br/>Final score: " + score + "<br/><br/>"
+    answerDiv.innerHTML = "Game over<br/><br/>Your score: " + score + "<br/><br/>"
 
     const url = new URL(host + "/scores")
     let params = {
