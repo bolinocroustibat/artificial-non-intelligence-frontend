@@ -164,7 +164,7 @@ function endGame() {
         .then((responseJson) => {
             gameoverDiv.appendChild(
                 document.createTextNode(
-                    "Best score: " + responseJson.maxScore
+                    "Top score: " + responseJson.maxScore
                 )
             );
         })
