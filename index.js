@@ -36,7 +36,6 @@ window.addEventListener('load', function () {
     document.getElementById('next-question-button').addEventListener('click', function (event) {
         document.getElementById("next-question-button").innerHTML = "Next question please"
         document.getElementById("question-wrapper").style.display = "none"
-        document.getElementById("loader-wrapper").style.display = "block"
         document.getElementById("answer-wrapper").style.display = "none"
         document.getElementById("score").innerHTML = score
         document.getElementById("lives").innerHTML = lives
@@ -48,7 +47,9 @@ window.addEventListener('load', function () {
 
 function getNewQuestion(aggressive) {
 
-    const url = new URL(host + "/get-random-comment")
+    document.getElementById("loader-wrapper").style.display = "block"
+
+    const url = new URL(host + "/comments")
     if (aggressive != null) {
         let params = {
             aggressive: aggressive,
@@ -84,7 +85,7 @@ function sendAnswer(questionId, answerId) {
     document.getElementById("question-wrapper").style.display = "none"
     document.getElementById("loader-wrapper").style.display = "block"
 
-    const url = new URL(host + "/verify-answer")
+    const url = new URL(host + "/answers")
     let params = {
         questionId: questionId,
         answerId: answerId
@@ -116,12 +117,7 @@ function sendAnswer(questionId, answerId) {
                 document.getElementById("lives").innerHTML = lives
             }
             if (lives == 0) {
-                answerDiv.style.color= "black"
-                answerDiv.innerHTML = "Game over<br/><br/>Final score: " + score
-                document.getElementById("next-question-button").innerHTML = "Play again"
-                score = 0
-                lives = 3
-                // throw new Error("Game finished")
+                endGame()
             }
         })
         .catch((error) => {
@@ -130,4 +126,42 @@ function sendAnswer(questionId, answerId) {
 
 }
 
+
+function endGame() {
+
+    document.getElementById("loader-wrapper").style.display = "block"
+    let answerDiv = document.getElementById("answer")
+    answerDiv.style.color= "black"
+    answerDiv.innerHTML = "Game over<br/><br/>Final score: " + score + "<br/><br/>"
+
+    const url = new URL(host + "/scores")
+    let params = {
+        score: score,
+    }
+    url.search = new URLSearchParams(params).toString()
+
+    fetch(url)
+        .then((response) => {
+            if (response.ok) {
+                return response.json()
+            } else {
+                throw new Error("API error")
+            }
+        })
+        .then((responseJson) => {
+            answerDiv.appendChild(
+                document.createTextNode(
+                    "Best score: " + responseJson.maxScore
+                )
+            );
+        })
+
+    document.getElementById("loader-wrapper").style.display = "none"
+    document.getElementById("next-question-button").innerHTML = "Play again"
+    score = 0
+    lives = 3
+
+    // throw new Error("Game finished")
+
+}
 
