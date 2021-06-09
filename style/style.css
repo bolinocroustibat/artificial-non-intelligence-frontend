@@ -33,7 +33,7 @@ html, body {
 }
 
 .button:hover {
-    background: #4278ed;
+    background: #4678e4;
 }
 
 .button:active {
@@ -98,7 +98,13 @@ html, body {
     font-size: 1.5em;
 }
 
-#answer-wrapper button {
+#game-over-wrapper {
+    display: none;
+    font-size: 1.5em;
+    margin-top: 30px;
+}
+
+.button-question {
     cursor: pointer;
     padding: 10px;
     margin-top: 30px;

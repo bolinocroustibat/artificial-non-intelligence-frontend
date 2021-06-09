@@ -51,7 +51,12 @@
 
                 <div id="answer-wrapper">
                     <div id="answer"></div>
-                    <button id="next-question-button">Next question please</button>
+                    <button class="button-question" id="next-question-button">Next question please</button>
+                </div>
+
+                <div id="game-over-wrapper">
+                    <div id="game-over"></div>
+                    <button class="button-question" id="reset-button">Play again</button>
                 </div>
 
             </div>
