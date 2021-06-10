@@ -6,13 +6,14 @@
 
     <meta charset="UTF-8" />
     <title>Artificial Non Intelligence</title>
-    <meta name="Description" content="Artificial Non Intelligence" />
+    <meta name="Description" content="A deep learning-powered online game
+raising awareness about AI and trolls" />
     <meta property="og:locale" content="en_EN">
     <meta property="og:site_name" content="Artificial Non Intelligence" />
     <meta property="og:url" content="https://artificial-non-intelligence.herokuapp.com" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Artificial Non Intelligence" />
-    <meta property="og:description" content="Artificial Non Intelligence" />
+    <meta property="og:description" content="A deep learning-powered online game raising awareness about AI and trolls" />
     <meta property="og:image" content="style/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Quicksand" />
