@@ -1,13 +1,5 @@
 var data = [
   {
-    "id": 9399,
-    "content": "No  Paul  cola is the fucking nuts. I would be a dead girl on foot without it. Exhausted. Up late watching Wall-E.",
-    "real": 1,
-    "aggressive": 0,
-    "difficulty": null,
-    "created": "2021-06-08 05:47:43"
-  },
-  {
     "id": 9400,
     "content": "lolll you probably would hate it too 'cause it's all creamy like with a creamy sauce! i usually love these kinda soups too. GRR!",
     "real": 1,
@@ -218,14 +210,6 @@ var data = [
   {
     "id": 19869,
     "content": "haha yeah you are right but my laptop sucks :/ haha you too :) but its a good one",
-    "real": 0,
-    "aggressive": 0,
-    "difficulty": null,
-    "created": "2021-06-08 05:47:49"
-  },
-  {
-    "id": 19870,
-    "content": "Nahhhhh..haha. Im so used to it....im an ass haha",
     "real": 0,
     "aggressive": 0,
     "difficulty": null,
