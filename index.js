@@ -38,10 +38,13 @@ window.addEventListener('load', function () {
 })
 
 function startNewGame(aggressive) {
+
     document.getElementById("score").innerHTML = 0
     document.getElementById("lives").innerHTML = 3
-    document.getElementById("game-over-wrapper").style.display = "none"
+    document.getElementById("answer-wrapper").style.display = "none"
     document.getElementById("next-question-button").style.display = ""
+    document.getElementById("game-over-wrapper").style.display = "none"
+    document.getElementById("loader-wrapper").style.display = "block"
 
     const url = new URL(host + "/sessions")
     return fetch(url, {
@@ -51,22 +54,20 @@ function startNewGame(aggressive) {
             if (response.ok) {
                 return response.json()
             } else {
-                throw new Error("API error")
+                throw new Error("Can't parse API response")
             }
         })
         .then((responseJson) => {
             sessionUid = responseJson.sessionUid
             getNewQuestion(aggressive)
         })
-        .catch((error) => {
-            throw new Error("API error")
-        })
 }
 
 
 function getNewQuestion(aggressive) {
-    document.getElementById("question-wrapper").style.display = "none"
+
     document.getElementById("answer-wrapper").style.display = "none"
+    document.getElementById("question-wrapper").style.display = "none"
     document.getElementById("loader-wrapper").style.display = "block"
 
     const url = new URL(host + "/questions")
@@ -76,13 +77,12 @@ function getNewQuestion(aggressive) {
         }
         url.search = new URLSearchParams(params).toString()
     }
-
     return fetch(url)
         .then((response) => {
             if (response.ok) {
                 return response.json()
             } else {
-                throw new Error("API error")
+                throw new Error("Can't parse API response")
             }
         })
         .then((responseJson) => {
@@ -93,9 +93,6 @@ function getNewQuestion(aggressive) {
             document.getElementById("question-wrapper").style.display = "block"
             clickable = true
         })
-        .catch((error) => {
-            throw new Error("API error")
-        })
 
 }
 
@@ -103,6 +100,7 @@ function sendAnswer(sessionUid, questionId, answer) {
 
     document.getElementById("question-wrapper").style.display = "none"
     document.getElementById("loader-wrapper").style.display = "block"
+
     const url = new URL(host + "/answers")
     const data = {
         'sessionUid': sessionUid,
@@ -117,7 +115,7 @@ function sendAnswer(sessionUid, questionId, answer) {
             if (response.ok) {
                 return response.json()
             } else {
-                throw new Error("API error")
+                throw new Error("Can't parse API response")
             }
         })
         .then((responseJson) => {
@@ -134,21 +132,11 @@ function sendAnswer(sessionUid, questionId, answer) {
                 document.getElementById("lives").innerHTML = responseJson.lives
             }
             if (responseJson.lives == 0) {
-                endGame(responseJson.score, responseJson.topScore)
+                // End Game
+                document.getElementById("next-question-button").style.display = "none"
+                document.getElementById("game-over-wrapper").style.display = "block"
+                document.getElementById("game-over").innerHTML = "Game over<br/>Your score: " + score + "<br/>Top score: " + topScore
             }
         })
-        .catch((error) => {
-            throw new Error("API error, or game finished")
-        })
 
 }
-
-
-function endGame(score, topScore) {
-
-    document.getElementById("next-question-button").style.display = "none"
-    document.getElementById("game-over-wrapper").style.display = "block"
-    document.getElementById("game-over").innerHTML = "Game over<br/>Your score: " + score + "<br/>Top score: " + topScore
-
-}
-
