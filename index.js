@@ -135,7 +135,7 @@ function sendAnswer(sessionUid, questionId, answer) {
                 // End Game
                 document.getElementById("next-question-button").style.display = "none"
                 document.getElementById("game-over-wrapper").style.display = "block"
-                document.getElementById("game-over").innerHTML = "Game over<br/>Your score: " + score + "<br/>Top score: " + topScore
+                document.getElementById("game-over").innerHTML = "Game over<br/>Your score: " + responseJson.score + "<br/>Top score: " + responseJson.topScore
             }
         })
 
