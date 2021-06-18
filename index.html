@@ -19,16 +19,6 @@ raising awareness about AI and trolls" />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Quicksand" />
     <link href="style/style.css" rel="stylesheet" type="text/css" />
     <link href="style/favicon.ico" rel="shortcut icon" type="image/x-icon">
-    <?php
-    // If there's a skin parameter from GET request and if it's part of the existing ones...
-    if (isset($_GET["aggressive"]) and ($_GET["aggressive"] == ("true" || "false"))) {
-        echo '<script type="text/javascript">
-        var aggressive = ("' . addslashes($_GET["aggressive"]) . '" === "true")</script>';
-    } else {
-        echo '<script type="text/javascript">var aggressive = null</script>';
-    }
-    ?>
-
     <script src="index.js"></script>
 
 </head>

@@ -4,6 +4,9 @@ const host = "https://non-intelligence-api.herokuapp.com"
 var currentQuestionId = null
 var clickable = true
 var sessionUid
+if (!aggressive) {
+    var aggressive = null
+}
 
 window.addEventListener('load', function () {
 
@@ -38,7 +41,6 @@ window.addEventListener('load', function () {
 })
 
 function startNewGame(aggressive) {
-
     document.getElementById("score").innerHTML = 0
     document.getElementById("lives").innerHTML = 3
     document.getElementById("answer-wrapper").style.display = "none"
