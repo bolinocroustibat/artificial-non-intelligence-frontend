@@ -8,5 +8,5 @@ Basic frontend with HTML, CSS and JavaScript, no dependencies.
 Add Heroku app as origin, if necessary:
 `heroku git:remote -a artificial-non-intelligence`
 
-Deploy with:
-`git push heroku main`
+Deploy the `heroku` branch on Heroku origin, with:
+`git push heroku heroku`
