@@ -3,10 +3,6 @@
 Basic frontend with HTML, CSS and JavaScript, no dependencies.
 
 
-## To deploy on Heroku
+## To deploy on Netflify
 
-Add Heroku app as origin, if necessary:
-`heroku git:remote -a artificial-non-intelligence`
-
-Deploy with:
-`git push heroku main`
+Just push on `main` branch, it will automatically deploy on Netlify.
