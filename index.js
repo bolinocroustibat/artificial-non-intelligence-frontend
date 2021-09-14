@@ -51,8 +51,8 @@ function startNewGame(aggressive) {
 
     const url = new URL(host + "/sessions")
     return fetch(url, {
-            method: 'POST',
-        })
+        method: 'POST',
+    })
         .then((response) => {
             if (response.ok) {
                 return response.json()
@@ -112,6 +112,9 @@ function sendAnswer(sessionUid, questionId, answer) {
     }
     return fetch(url, {
         method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
         body: JSON.stringify(data)
     })
         .then((response) => {
@@ -138,9 +141,7 @@ function sendAnswer(sessionUid, questionId, answer) {
                 // End Game
                 document.getElementById("next-question-button").style.display = "none"
                 document.getElementById("game-over-wrapper").style.display = "block"
-                document.getElementById("game-over").innerHTML = "Game over<br/>Your score: " + responseJson.score + "<br/>Top score: " + responseJson.topScore +
-                "<a href='https://ani-data.adriencarpentier.com/'>see the stats</div>"
-
+                document.getElementById("game-over").innerHTML = "Game over<br/>Your score: " + responseJson.score + "<br/>Top score: " + responseJson.topScore + "<a href='https://ani-data.adriencarpentier.com/'>see the stats</div>"
             }
         })
 
