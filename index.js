@@ -1,5 +1,6 @@
-const host = "https://non-intelligence-api.herokuapp.com"
-// const host = "http://127.0.0.1:8000"
+const host = "https://ani-api.adriencarpentier.com" // new production API
+// const host = "https://non-intelligence-api.herokuapp.com" // old production API, not being used anymore because Heroku PostgreSQL is not free
+// const host = "http://127.0.0.1:8000" // local
 
 var currentQuestionId = null
 var clickable = true
