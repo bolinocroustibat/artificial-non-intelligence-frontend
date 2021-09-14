@@ -139,7 +139,7 @@ function sendAnswer(sessionUid, questionId, answer) {
                 document.getElementById("next-question-button").style.display = "none"
                 document.getElementById("game-over-wrapper").style.display = "block"
                 document.getElementById("game-over").innerHTML = "Game over<br/>Your score: " + responseJson.score + "<br/>Top score: " + responseJson.topScore +
-                "<a href='https://ani-data.adriencarpentier.com/'>click here to see the stats</div>"
+                "<a href='https://ani-data.adriencarpentier.com/'>see the stats</div>"
 
             }
         })

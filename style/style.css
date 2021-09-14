@@ -107,6 +107,7 @@ html, body {
 #game-over-wrapper a{
     display: block;
     font-size: 0.5em;
+    margin-top: 10px;
 }
 
 .button-question {
